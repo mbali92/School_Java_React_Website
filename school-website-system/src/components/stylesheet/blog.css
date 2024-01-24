@@ -1,0 +1,113 @@
+.blog-section{
+    padding: 7rem 0;
+    background-color: #fff;
+}
+.blog-section .section-title{
+    margin-bottom: 4rem;
+    text-align: center;
+}
+.blog-title{width: 40%; margin: 0 auto;}
+
+.blog-section .section-title p{
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    width: 50%;
+    color: #333;
+    line-height: 25px;
+}
+.blog_section_btn_box{ text-align: center; margin-top: 3rem;}
+#more-posts{
+    text-align: center;
+    color: #fff;
+    padding: 14px 2rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: blue;
+}
+.blog-card-col{
+    width: 33%;
+    padding-right: 10px;
+}
+.blog-card-col:last-child{
+    padding-right: 0;
+}
+.blog-card{
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 30px;
+    border: 1px solid #eee;
+}
+.blog-card img{
+    height: 200px;
+    width: 100%;
+    border-radius: 20px;
+}
+.blog-text{
+    padding: 2rem 0;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.blog-text .category{
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    display: block;
+    color:blue;
+}
+.blog-text h6{
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #333;
+    text-transform: capitalize;
+}
+.blog-date{
+    font-size: 12px;
+    color: #666;
+}
+.blog-date i{
+    font-size: 13px;
+    padding: 8px 10px;
+    background-color: #f1f1f1;
+    color: #666;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.card-text{
+    height: 119px;
+    overflow: hidden;
+}
+.blog-text p{
+    font-size: 13px;
+    color: #888;
+    line-height: 24px;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 1rem;
+}
+.blog-text button{
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    text-transform: capitalize;
+    border: 1px solid blue;
+    border-radius: 30px;
+    margin-top: 1.5rem;
+    position: relative;
+    background-color: #fff;
+    font-weight: 500;
+    color: blue;
+    cursor: pointer;
+    padding: 5px 16px;
+}
+.blog-text button i{
+    padding: 10px;
+    top: -1px;
+    border-radius: 15px;
+    margin-left: 8px;
+}

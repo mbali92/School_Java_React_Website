@@ -1,0 +1,58 @@
+.topnav {
+    background-color: #fff;
+    border-radius: 10px;
+}
+.topnav .page-row{
+    justify-content: space-between;
+    padding: 20px 0;
+    width: 95%;
+    margin: 0 auto;
+    align-items: center;
+}
+.dashboard-menu{
+    background-color: blue;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.dashboard-menu i{
+    color: #fff;
+    font-size: 20px;
+}
+.topnav_right-column{
+    display: flex;
+    align-items: center;
+}
+.topnav-social-icons i{
+    color: #333;
+    border: 1px solid #bbb;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-left: 8px;
+    display: none;
+    padding: 12px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.topnav_user_profile{
+    display: flex;
+    align-items: center;
+}
+.topnav_user_profile img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin:0 10px 0 15px;
+}
+.topnav_user_profile p span{
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size:14px;
+    color: #000;
+    text-transform: capitalize;
+}
+.topnav_user_profile p span:last-child{
+    font-size: 11px;
+    color: blue;
+    text-transform: capitalize;
+}

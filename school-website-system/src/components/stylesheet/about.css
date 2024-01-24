@@ -1,0 +1,138 @@
+.about-section{
+    padding: 7rem 0;
+    background-color: #f9f9f9;
+}
+.about-section .page-row{
+    align-items: center;
+}
+.about_image_section{
+    width: 40%;
+    position: relative;
+}
+.about_image_section #big-about-img{
+    height: 600px;
+    width: 70%;
+    display: inline-block;
+    border-radius: 20px;
+}
+#about-image-textbox{
+    position: absolute;
+    bottom: 30px;
+    background-color: #fff;
+    right: 60px;
+    text-align: center;
+    padding: 3rem 1rem;
+    text-transform: capitalize;
+    border-radius: 30px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+#about-image-textbox span{
+    font-size: 30px;
+    color: blue;
+    font-weight: 700;
+}
+.about_text_section{
+    width: 60%;
+    font-family: 'Poppins', sans-serif;
+}
+.section-title{
+    font-family: 'Poppins', sans-serif;
+}
+.about_text_section .section-title{
+    margin-bottom: 2rem;
+}
+.section-title h1{
+    font-size: 40px;
+    margin-bottom: 1rem;
+    color: #222;
+    font-weight: 600;
+    line-height: 50px;
+    text-transform: capitalize;
+}
+.about-section h1{
+     width: 70%;
+}
+.about_text_section .section-title p{
+    font-size: 14px;
+    line-height: 25px;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 2rem;
+}
+.subtitle{
+    color: blue;
+    text-transform: capitalize;
+}
+.about_sub_textsect{
+    margin-top: 1rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.about_statements{
+    margin-top: 1rem;
+    width: 45%;
+}
+.about_statements i{
+   background-color:lightblue;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    color: blue;
+    margin-bottom: 1rem;
+}
+.about_sub_textsect h6{
+    font-size: 16px;
+    margin-bottom: 13px;
+    color: #444;
+    font-weight: 500;
+    display: flex;
+    padding-bottom: 1rem;
+    align-items: center;
+    border-bottom: 1px solid lightblue;
+    justify-content: space-between;
+    width: 90%;
+}
+.about_sub_textsect h6 i{
+    padding-right: 8px;
+    font-size: 15px;
+    color:#000;
+}
+.about_statements p{
+    font-size: 13px;
+    line-height: 25px;
+    color: #555;
+    width: 90%;
+}
+.about_icon_box{
+    display: flex;
+    margin-top: 4rem;
+    justify-content: space-between;
+}
+.about_icon_text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    padding: 1rem 0;
+    border: 1px solid #ddd;
+    width: 48%;
+    
+}
+.about_icon_text i{
+    font-size: 45px;
+    color: #000;
+    margin-right: 1rem;
+}
+.about_icon_text span{
+    display: block;
+}
+.about_icon_text span:first-child{
+    font-size: 25px;
+    font-weight: 700;
+}
+.about_icon_text span:last-child{font-size: 14px; color: #000;}
+.blog-section{
+    padding: 7rem 0;
+    background-color: #f6f6f6;
+}

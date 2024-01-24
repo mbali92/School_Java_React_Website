@@ -1,0 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200&display=swap');
+@import "header.css";
+@import "about.css";
+@import "blog.css";
+@import "gallery.css";
+@import "dashboardStyle.css";
+@import "sidebar.css";
+@import "topnav.css";
+@import "dashboardheader.css";
+@import "createblog.css";
+@import "blogposts.css";
+@import "users.css";
+@import "contact.css";
+@import "aboutpage.css";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+.page-row{
+    display: flex;
+}
+.dashboard-main-content{
+    background-color: #f9f9f9;
+    position: absolute;
+    top: 0;
+    padding: 20px 4rem;
+    transition: all 2s;
+}

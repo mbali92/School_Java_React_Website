@@ -1,0 +1,25 @@
+.dashboard_page_header{
+    margin-top: 2rem;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    padding-left: 5px;
+}
+.dashboard_page_header h1{
+    font-size: 35px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: blue;
+}
+.header_pagenation span{
+    font-size: 13px;
+    padding-right: 10px;
+    text-transform: capitalize;
+    border-right: 1px solid #ddd;
+    margin-right: 10px;
+    color: #777;
+}
+.header_pagenation span:last-child{
+    border: none;
+    font-weight: 600;
+    color: #000;
+}

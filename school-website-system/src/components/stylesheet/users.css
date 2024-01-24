@@ -1,0 +1,48 @@
+.users-table{
+    background-color: #fff;
+    padding: 3rem 2rem;
+    margin-top: 2rem;
+    border-radius: 10px;
+}
+.user_row_title{
+    background-color: blue;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+.user_row_title h6{
+    width: 24%;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+}
+.user_row_title h6 i{
+    font-size: 18px;
+    margin-right: 8px;
+}
+.user_details_row{
+    display: flex;
+    padding: 1rem; 
+    border-bottom: 1px solid #eee;
+}
+.user_details_col{
+    width: 24%;
+}
+.user_details_col{
+    font-size: 14px;
+}
+.user_details_col i{
+    padding: 8px;
+    margin-left: 8px;
+    border: 1px solid #eee;
+    cursor: pointer;
+    align-items: center;
+}
+.user_details_col i:first-child{
+    color: red;
+}
+.user_details_col i:last-child{
+    color: blue;
+}

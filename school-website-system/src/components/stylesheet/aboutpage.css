@@ -1,0 +1,42 @@
+.about_edit_container{
+    margin-top: 2rem;
+}
+.about_edit_container form h6{
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: #000;
+    margin-bottom: 1rem;
+}
+.about_edit_container form h6 i{
+    color: blue;
+    border: 1px solid blue;
+    padding: 6px;
+    border-radius: 100%;
+    margin-right: 8px;
+    font-size: 10px;
+}
+.about_edit_container textarea{
+    border: 1px solid #eee;
+    padding:16px 10px;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    height: 200px;
+    width: 100%;
+} 
+.about_edit_container textarea::placeholder{color: #bbb;}
+.about_edit_statements div{width: 50%;}
+.about_edit_statements div:first-child{padding-right: 20px;}
+.about_edit_statements textarea{
+    width: 100%;
+}
+#post_aboutus{margin-bottom: 3rem;}
+.about_edit_container button{
+    padding: 1rem 1.5rem;
+    text-transform: capitalize;
+    font-size: 15px;
+    background-color: blue;
+    color: #fff;
+    margin-bottom: 2rem;
+}
