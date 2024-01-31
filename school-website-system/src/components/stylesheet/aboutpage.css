@@ -26,7 +26,8 @@
     width: 100%;
 } 
 .about_edit_container textarea::placeholder{color: #bbb;}
-.about_edit_statements div{width: 50%;}
+.about_edit_statements{flex-direction: column;}
+.about_edit_statements div{width: 100%;}
 .about_edit_statements div:first-child{padding-right: 20px;}
 .about_edit_statements textarea{
     width: 100%;
@@ -39,4 +40,8 @@
     background-color: blue;
     color: #fff;
     margin-bottom: 2rem;
+}
+@media(min-width:992px){
+    .about_edit_statements{flex-direction: row;}
+    .about_edit_statements div{width: 50%;}
 }
