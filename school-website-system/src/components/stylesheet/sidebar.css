@@ -60,7 +60,7 @@
 .blog-links a{
     margin-left: 2rem;
 }
-@media(min-width:992px) {
+@media(min-width:1200px) {
     .sidebar-wrapper{z-index: 0;top: 0;width: 15%;}
     .sidebar_links {margin-top: 6rem;}
 }

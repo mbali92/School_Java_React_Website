@@ -41,7 +41,7 @@
     color: #fff;
     margin-bottom: 2rem;
 }
-@media(min-width:992px){
+@media(min-width:1200px){
     .about_edit_statements{flex-direction: row;}
     .about_edit_statements div{width: 50%;}
 }

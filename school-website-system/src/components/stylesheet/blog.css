@@ -130,7 +130,7 @@
     border-radius: 15px;
     margin-left: 8px;
 }
-@media(min-width:992px)
+@media(min-width:1200px)
 {
     .blog-card-col{width: 33%; padding-right: 20px;}
     .blog-section .section-title h1{width: 40%;}

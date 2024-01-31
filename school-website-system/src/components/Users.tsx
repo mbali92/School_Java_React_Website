@@ -10,11 +10,10 @@ interface UserDetails{
 }
 
 function Users() {
-    const [menubar,setmenubar ] = useState<number>(15);
-    const handleSidebar=()=>{
-        menubar == 0 ? setmenubar(15) : setmenubar(0);
-    }
     const [users, setUsers] = useState<UserDetails[]>([]);
+    const [leftContentPage, setleftContentPage] = useState<number>(0);
+    const [widthContentPage, setwidthContentPage] = useState<number>(100);
+    const [menubar,setmenubar ] = useState<number>(0);
 
     useEffect(() => {
          const getUsers =async()=>{
@@ -40,7 +39,7 @@ function Users() {
         }
     }, []);
     
-     const deleteUser =async(useId:number)=>{
+    const deleteUser =async(useId:number)=>{
             const userToken = sessionStorage.getItem("jwtToken");
             try{ const response = await fetch(`http://localhost:8080/admin/deleteUser${useId}`,{
             method:"DELETE",
@@ -55,18 +54,26 @@ function Users() {
                window.location.reload()
             }
             }catch(error){console.log(error)}
-        } 
+    } 
+    const handleSidebar=()=>{
+      if(window.innerWidth > 1200){
+         if(leftContentPage == 0){setmenubar(0); setleftContentPage(15);setwidthContentPage(85)
+         }else{setmenubar(-15);setleftContentPage(0);setwidthContentPage(100)}
+      }
+      else{menubar == 0 ? setmenubar(-100) : setmenubar(0);}
+    }
   return (
     <>
     <div className="page-row">
         <Sidebar widthSet={menubar}/>
-        <div className="dashboard-main-content" style={{left:menubar+'%', width: menubar == 15 ? 85+'%': 100+'%'}}>
+        <div className="dashboard-main-content" style={{left:leftContentPage +'%', width: widthContentPage+'%'}}>
             <Topnavbar width={handleSidebar}/>
             <Dashboardheader pageName={"Users"} pageNavNameOne={"users"} pageNavNameTwo={""}/>
             <div className="users-table">
                 <div className="user-table-row">
                     <div className="user_row_title page-row">
-                        <h6> <i className="lni lni-users"></i> User Name</h6>
+                        <h6> <i className="lni lni-users"></i> User Details </h6>
+                        <h6> <i className="lni lni-users"></i> User Name </h6>
                         <h6> <i className="lni lni-phone-set"></i>User Email</h6>
                         <h6> <i className="lni lni-user"></i>Designation</h6>
                         <h6><i className="lni lni-plus"></i>Action</h6>

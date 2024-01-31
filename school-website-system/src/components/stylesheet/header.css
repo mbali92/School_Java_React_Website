@@ -43,13 +43,14 @@
 .menu_links{
     position: absolute;
     background-color: #fff;
-    width: 0;
     height:100%;
+    width: 100%;
     text-transform: capitalize;
     text-decoration: none;
     font-weight: 500;
     z-index: 4;
     overflow: hidden;
+    transition: all 2s;
 }
 .menu_links a{
     display: block;
@@ -69,15 +70,16 @@
     margin-right: 2px;
 }
 .hero_section{
-    height: 650px;
+    height: 500px;
     width: 100%;
     position: relative;
 }
 .hero_section .page-row{
     width: 100%;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 4rem;
+    justify-content: center;
+    flex-direction: column;
+    height: 500px;
 }
 .hero_text{
     width: 100%;
@@ -163,8 +165,10 @@
     .big_nav .lni-menu{display: none;}
     .big_nav a, .logo{padding-right: 3rem;}
     .big_nav .container{width: 80%;justify-content: center;}
+    .hero_section .page-row{flex-direction: row; justify-content: space-between; margin-top: 4rem;}
     .hero_img_box{height: 500px;}
     .hero_text{width: 45%;}
+    .hero_section{height: 650px;}
 }
 @media(min-width:1200px){
     .hero_text h1,.hero_text h1 span{font-size: 60px;}

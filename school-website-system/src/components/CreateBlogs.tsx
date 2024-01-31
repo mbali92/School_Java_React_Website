@@ -50,7 +50,7 @@ function CreateBlogs() {
    }, []);
 
    const handleSidebar=()=>{
-      if(window.innerWidth > 991){
+      if(window.innerWidth > 1200){
          if(leftContentPage == 0){setmenubar(0); setleftContentPage(15);setwidthContentPage(85)
          }else{setmenubar(-15);setleftContentPage(0);setwidthContentPage(100)}
       }

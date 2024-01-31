@@ -4,31 +4,16 @@ import Topnavbar from "./Topnavigation";
 import Dashboardheader from './Dashboardheader';
 import {useForm, SubmitHandler} from "react-hook-form"; 
 
-type contactDetails={
-    number:string,
-    email:string
-    ticktock:string
-    facebook:string
-    instagram:string
-    address:string
-}
+type contactDetails={number:string,email:string,ticktock:string, facebook:string,instagram:string,address:string}
 
 function Contact() {
-    const [menubar,setmenubar ] = useState<number>(15);
-    const handleSidebar=()=>{
-        menubar == 0 ? setmenubar(15) : setmenubar(0);
-    }
     const [editContact, seteditContact] = useState<boolean>(false);
-    const {register,handleSubmit,setValue}=useForm<contactDetails>({
-        defaultValues:{
-            email:"",
-            number:"",
-            ticktock:"",
-            facebook:"",
-            instagram:"",
-            address:""
-        }
-    })
+    const {register,handleSubmit,setValue}=useForm<contactDetails>({defaultValues:{email:"",number:"",ticktock:"",facebook:"",instagram:"",address:""}})
+    const [leftContentPage, setleftContentPage] = useState<number>(0);
+    const [widthContentPage, setwidthContentPage] = useState<number>(100);
+    const [menubar,setmenubar ] = useState<number>(0);
+
+
     useEffect(() => {
         const getContactData =async()=>{
             const userToken = sessionStorage.getItem("jwtToken");
@@ -81,11 +66,18 @@ function Contact() {
             }catch(error){console.log(error)}
         }
     }
+    const handleSidebar=()=>{
+      if(window.innerWidth > 1200){
+         if(leftContentPage == 0){setmenubar(0); setleftContentPage(15);setwidthContentPage(85)
+         }else{setmenubar(-15);setleftContentPage(0);setwidthContentPage(100)}
+      }
+      else{menubar == 0 ? setmenubar(-100) : setmenubar(0);}
+    }
   return (
     <>
     <div className="page-row">
         <Sidebar widthSet={menubar}/>
-        <div className="dashboard-main-content" style={{left:menubar+'%', width: menubar == 15 ? 85+'%': 100+'%'}}>
+        <div className="dashboard-main-content" style={{left:leftContentPage+'%', width: widthContentPage+'%'}}>
             <Topnavbar width={handleSidebar}/>
             <Dashboardheader pageName={"Enter contact"} pageNavNameOne={"contact"} pageNavNameTwo={""}/>
             <div className="contact-page">

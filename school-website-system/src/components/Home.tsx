@@ -14,6 +14,7 @@ function Home() {
     const [start, setstart] = useState(0);
     const [end, setend] = useState(3);
     const [imageIndex, setimageIndex] = useState(0);
+    const [menulinks, setmenulinks] = useState<String>("-100%");
     const [galleryImages, setgalleryImages] = useState([galleryImgOne, galleryImgTwo,galleryImgThree, galleryImgFour]);
 
     useEffect(() => {
@@ -60,7 +61,7 @@ function Home() {
             setimageIndex(prev => prev - 1);
         }
     }
-    
+    const toogleMobileMenu=()=>{menulinks == "0" ? setmenulinks("-100%") : setmenulinks("0");} 
   return (
     <>
     <header>
@@ -85,17 +86,15 @@ function Home() {
                     <span className="logo"><i className="fa-solid fa-school"></i> mainland</span>
                     <a href="#gallery-section">Gallery</a>
                     <a href="#blog-section">Blog</a>
-                    <a href="">contact us </a>
-                    <i className="lni lni-menu"></i>
+                    <i onClick={toogleMobileMenu} className="lni lni-menu"></i>
                 </div>
             </div>
-            <div className="menu_links">
+            <div className="menu_links" style={{left:menulinks}}>
                 <a href="#hero_section">Home</a>
                 <a href="#about-section">about</a>
                 <a href="#gallery-section">Gallery</a>
                 <a href="#blog-section">Blog</a>
-                <a href="">contact us </a>
-                <a href="">Portal</a>
+                <a href="/dashboard">Portal</a>
             </div>
         </nav>
         <div className="hero_section" id="hero_section">
