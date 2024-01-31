@@ -1,16 +1,21 @@
 import React,{useEffect,useState} from 'react'
 import "./stylesheet/home.css";
-import galleryImgOne from "../assets/gallery-image1.jpg";
+import galleryImgOne from "../assets/blog-img1.jpg";
 import galleryImgTwo from "../assets/gallery-image2.jpg";
 import galleryImgThree from "../assets/gallery-image3.jpg";
 import galleryImgFour from "../assets/gallery-image4.jpg";
 import {PostObject, aboutInfo,contactInfo} from "./WebsiteInterfaces";
 
-
 function Home() {
     const [contact, setContact] = useState<contactInfo[]>([{number:"",email:"",ticktock:"",facebook:"",instagram:"",address:""}]);
     const [siteAbout,setSiteAbout] = useState<aboutInfo[]>([{about_id:0,info: "",mission:"",vision:""}]);
     const [blog, setBlog] = useState<PostObject[]>([{blog_id:0,title: "", category:"",post:"",blog_date:new Date,blog_image:""}]);   
+    const [blogList, setblogList] = useState<PostObject[]>();
+    const [start, setstart] = useState(0);
+    const [end, setend] = useState(3);
+    const [imageIndex, setimageIndex] = useState(0);
+    const [galleryImages, setgalleryImages] = useState([galleryImgOne, galleryImgTwo,galleryImgThree, galleryImgFour]);
+
     useEffect(() => {
         const homeWebsiteData =async()=>{
             try{ const response = await fetch("http://localhost:8080/auth/getWebsiteInfo",{
@@ -24,15 +29,38 @@ function Home() {
                setSiteAbout(websiteInfo[0])
                setContact(websiteInfo[1])
                setBlog(websiteInfo[2])
+               if(websiteInfo[2]){
+                 setblogList(websiteInfo[2].slice(start,end))
+               }
             }
             }catch(error){console.log(error)}
         } 
         homeWebsiteData();
-     
         return () => {
-            
         }
-    }, []);
+    }, [blogList, imageIndex]);
+   
+    const slideBlogPosts=(btnType:string)=>{
+        if(btnType == "next" && end < blog.length){
+            setstart(prev=> prev + 3) 
+            setend(prev => prev + 3)
+        }
+        else if(btnType == "prev" && start > 0){
+            setstart(prev=> prev - 3) 
+            setend(prev => prev - 3)
+        }
+        setblogList(blog.slice(start,end))
+    }
+    const changeImageGallery = (btnType:String)=>{
+        if(btnType == "next"){
+            imageIndex == galleryImages.length - 1? setimageIndex(prev => prev = 0 ):
+            setimageIndex(prev => prev + 1);
+        }else if(btnType == "prev"){
+            imageIndex == 0 ? setimageIndex(prev => prev = galleryImages.length - 1):
+            setimageIndex(prev => prev - 1);
+        }
+    }
+    
   return (
     <>
     <header>
@@ -41,7 +69,7 @@ function Home() {
                 <div className="container">
                     <div className="page-row">
                         <div className="nav_contact_details">
-                            <span className='blog-date'><i className="fa-solid fa-phone"></i>{contact[0].number} </span>
+                            <span><i className="fa-solid fa-phone"></i>{contact[0].number} </span>
                             <span><i className="fa-solid fa-envelopes-bulk"></i> {contact[0].email}</span>
                         </div>
                         <div className="nav_btns">
@@ -58,7 +86,16 @@ function Home() {
                     <a href="#gallery-section">Gallery</a>
                     <a href="#blog-section">Blog</a>
                     <a href="">contact us </a>
+                    <i className="lni lni-menu"></i>
                 </div>
+            </div>
+            <div className="menu_links">
+                <a href="#hero_section">Home</a>
+                <a href="#about-section">about</a>
+                <a href="#gallery-section">Gallery</a>
+                <a href="#blog-section">Blog</a>
+                <a href="">contact us </a>
+                <a href="">Portal</a>
             </div>
         </nav>
         <div className="hero_section" id="hero_section">
@@ -124,14 +161,14 @@ function Home() {
             </div>
             <div className="page-row">
                 {
-                    blog.map((item,index)=>
+                    blogList?.map((item,key)=>
                         <div key={item.blog_id} className="blog-card-col">
                             <div className="blog-card">
                                 <img src={item.blog_image} alt=""/>
                                 <div className="blog-text">
                                     <span className='category'>{item.category}</span>
                                     <h6>{item.title}</h6>
-                                    <span className='blog-date'><i className="fa-solid fa-calendar-days"></i>{}</span>
+                                    <span className='blog-date'><i className="fa-solid fa-calendar-days"></i>{item.blog_date}</span>
                                     <div className='card-text'><p>{item.post}</p></div>
                                     <button>read more <i className="fa-solid fa-arrow-right"></i> </button>
                                 </div>
@@ -141,20 +178,36 @@ function Home() {
                 }
             </div>
             <div className="blog_section_btn_box">
-               <button id="more-posts">More post <i className="fa-solid fa-arrow-right"></i></button>
+                <div className="home_blog_slider">
+                    <i onClick={()=>slideBlogPosts("prev")} className="lni lni-arrow-left"></i>
+                    <div className="blog_pegination_numbers">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+                    <i onClick={()=>slideBlogPosts("next")} className="lni lni-arrow-right"></i>
+                </div>
             </div>
         </div>
    </div>
    <div className="gallery-section" id="gallery-section">
        <div className="container">
-          <div className="gallery_title">
-             <div className="section-title">
-             <span className="subtitle">Our Gallery</span>
-                <h1>Our school events gallery</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sunt neque,
-                     architecto incidunt alias illo repudiandae cum.</p>
+           <div className="gallery_title">
+                <div className="section-title">
+                <span className="subtitle">Our Gallery</span>
+                    <h1>Our school events gallery</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sunt neque,
+                        architecto incidunt alias illo repudiandae cum.</p>
+                </div>
+            </div>
+             <div className="mobile_gallery">
+                <img src={galleryImages[imageIndex]} alt=""/>
+                <div className="gallery_slider">
+                    <i onClick={()=>changeImageGallery("prev")} className="lni lni-arrow-left"></i>
+                    <i onClick={()=>changeImageGallery("next")} className="lni lni-arrow-right"></i>
+                </div>
              </div>
-             <div className="page-row">
+             <div className="desktop_gallery" >
                     <div className="big-gallery-column">
                         <div className="big-gallery-row-one">
                            <div><img src={galleryImgOne} alt="" /> </div>
@@ -169,11 +222,6 @@ function Home() {
                         <div><img src={galleryImgFour} alt="" /></div>
                     </div>
              </div>
-          </div>
-          <div className="gallery-nav-arrows">
-            <i className="fa-solid fa-arrow-left"></i>
-            <i className="fa-solid fa-arrow-right"></i>
-          </div>
        </div>
    </div> 
     </>

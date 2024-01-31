@@ -1,5 +1,5 @@
 .about-section{
-    padding: 7rem 0;
+    padding: 4rem 0;
     background-color: #f9f9f9;
 }
 .about-section .page-row{
@@ -8,6 +8,7 @@
 .about_image_section{
     width: 40%;
     position: relative;
+    display: none;
 }
 .about_image_section #big-about-img{
     height: 600px;
@@ -32,7 +33,7 @@
     font-weight: 700;
 }
 .about_text_section{
-    width: 60%;
+    width: 100%;
     font-family: 'Poppins', sans-serif;
 }
 .section-title{
@@ -42,15 +43,15 @@
     margin-bottom: 2rem;
 }
 .section-title h1{
-    font-size: 40px;
+    font-size: 25px;
     margin-bottom: 1rem;
     color: #222;
     font-weight: 600;
-    line-height: 50px;
+    line-height: 30px;
     text-transform: capitalize;
 }
 .about-section h1{
-     width: 70%;
+    width: 100%;
 }
 .about_text_section .section-title p{
     font-size: 14px;
@@ -64,14 +65,14 @@
     text-transform: capitalize;
 }
 .about_sub_textsect{
-    margin-top: 1rem;
     border-radius: 10px;
     display: flex;
+    flex-wrap:wrap;
     justify-content: space-between;
 }
 .about_statements{
     margin-top: 1rem;
-    width: 45%;
+    width: 100%;
 }
 .about_statements i{
    background-color:lightblue;
@@ -79,11 +80,11 @@
     border-radius: 5px;
     font-size: 1.5rem;
     color: blue;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 .about_sub_textsect h6{
     font-size: 16px;
-    margin-bottom: 13px;
+    margin: 13px 0;
     color: #444;
     font-weight: 500;
     display: flex;
@@ -117,7 +118,6 @@
     padding: 1rem 0;
     border: 1px solid #ddd;
     width: 48%;
-    
 }
 .about_icon_text i{
     font-size: 45px;
@@ -135,4 +135,12 @@
 .blog-section{
     padding: 7rem 0;
     background-color: #f6f6f6;
+}
+@media(min-width:992px){
+    .about_image_section{display: block;}
+    .about-section .section-title  h1{width: 70%}
+    .section-title h1{font-size: 40px; line-height: 50px;}
+    .about_text_section{width: 60%;}
+    .about_statements{width: 48%;}
+
 }
