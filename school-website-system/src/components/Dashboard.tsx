@@ -69,9 +69,11 @@ function Dashboard() {
                   <i className="fa-solid fa-school"></i> 
                   <p>Main<span>land</span></p>
                 </div>
-                 <h1>Please register to create meaningful content for our website.</h1>
+                <div className="login_header_details">
+                  <h1>Please register to create meaningful content for our website.</h1>
                  <p className='login_subtitle'>Just register and login to start writing about your experiences 
                   that you had at our wonderful school.</p>
+                </div>
               </div>
            </div>
            <div className="login-right-column">

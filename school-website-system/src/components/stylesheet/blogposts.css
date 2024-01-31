@@ -5,16 +5,15 @@
     flex-wrap: wrap;
 }
 .blog-post-card{
-    width: 33%;
+    width: 100%;
     font-family: 'Poppins', sans-serif;
     padding: 1.5rem;
     border-radius: 10px;
     border: 1px solid #eee;
     background-color: #fff;
-    margin:0 1% 20px 0;
+    margin:0 0 20px 0;
 }
 .blog-post-card:last-child{
-    
 }
 .blog-post-card img{
     width: 100%;
@@ -69,4 +68,7 @@
 .blog-post-text #delete-btn{
     background-color: #f1f1f1;
     color: #333;
+}
+@media(min-width:992px){
+    .blog-post-card{width: 32%; margin: 0 1% 20px 0;}
 }

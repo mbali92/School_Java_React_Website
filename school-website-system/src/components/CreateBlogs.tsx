@@ -27,7 +27,9 @@ function CreateBlogs() {
    });   
    const [edit, setEdit] = useState<boolean>(false);
    const [imageUrl, setimageUrl] = useState("");
-   const [menubar,setmenubar ] = useState<number>(15);
+   const [menubar,setmenubar ] = useState<number>(0);
+   const [leftContentPage, setleftContentPage] = useState<number>(0);
+   const [widthContentPage, setwidthContentPage] = useState<number>(100);
     
    useEffect(() => {
       const accessEditData =()=>{
@@ -40,7 +42,6 @@ function CreateBlogs() {
          }
       }
       accessEditData();
-     
       return()=>{
          if(localStorage.getItem("editData")){
             localStorage.removeItem("editData");
@@ -49,7 +50,11 @@ function CreateBlogs() {
    }, []);
 
    const handleSidebar=()=>{
-      menubar == 0 ? setmenubar(15) : setmenubar(0);
+      if(window.innerWidth > 991){
+         if(leftContentPage == 0){setmenubar(0); setleftContentPage(15);setwidthContentPage(85)
+         }else{setmenubar(-15);setleftContentPage(0);setwidthContentPage(100)}
+      }
+      else{menubar == 0 ? setmenubar(-100) : setmenubar(0);}
    }
 
    const sendBlogPost:SubmitHandler<blogContent> =async(postData)=>{
@@ -101,7 +106,7 @@ function CreateBlogs() {
     <>
     <div className="page-row">
         <Sidebar widthSet={menubar}/>
-        <div className='dashboard-page-section dashboard-main-content'style={{left:menubar+'%', width: menubar == 15 ? 85+'%': 100+'%'}}>
+        <div className='dashboard-page-section dashboard-main-content'style={{left:leftContentPage +"%", width:widthContentPage+"%"}}>
             <Topnavbar width={handleSidebar}/>
             <Dashboardheader pageName={"Create blog"} pageNavNameOne={"Blog"} pageNavNameTwo={"Create blog"}/>
             <div className="create-blog-content">  

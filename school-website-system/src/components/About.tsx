@@ -7,11 +7,10 @@ import {useForm, SubmitHandler} from "react-hook-form";
 
 function About() {
     const {register,handleSubmit,setValue}=useForm<aboutInfo>({defaultValues:{info: "",mission:"",vision:""}})
-    const [menubar,setmenubar ] = useState<number>(15);
-    const handleSidebar=()=>{
-        menubar == 0 ? setmenubar(15) : setmenubar(0);
-    }
     const [editInfo, setEditInfo] = useState<boolean>(false);
+    const [leftContentPage, setleftContentPage] = useState<number>(0);
+    const [widthContentPage, setwidthContentPage] = useState<number>(100);
+    const [menubar,setmenubar ] = useState<number>(0);
 
     useEffect(() => {
         const getAboutData =async()=>{
@@ -65,11 +64,18 @@ function About() {
             }catch(error){console.log(error)}
         }
     }
+     const handleSidebar=()=>{
+      if(window.innerWidth > 991){
+         if(leftContentPage == 0){setmenubar(0); setleftContentPage(15);setwidthContentPage(85)
+         }else{setmenubar(-15);setleftContentPage(0);setwidthContentPage(100)}
+      }
+      else{menubar == 0 ? setmenubar(-100) : setmenubar(0);}
+    }
     return (
         <>
             <div className="page-row">
                 <Sidebar widthSet={menubar}/>
-                <div className="dashboard-main-content" style={{left:menubar+'%', width: menubar == 15 ? 85+'%': 100+'%'}}>
+                <div className="dashboard-main-content" style={{left:leftContentPage +'%', width: widthContentPage+'%'}}>
                     <Topnavbar width={handleSidebar}/>
                     <Dashboardheader pageName={"About us"} pageNavNameOne={"About"} pageNavNameTwo={""}/>
                     <div className="about_edit_container">

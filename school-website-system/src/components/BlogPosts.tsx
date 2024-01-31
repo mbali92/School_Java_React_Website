@@ -9,15 +9,16 @@ import blogImageThree from "../assets/gallery-image3.jpg";
 import UserProvider,{UserContext} from './UserContext';
 
 function BlogPosts() {
-    const [menubar,setmenubar ] = useState<number>(15);
     const [blogPosts, setblogPosts] = useState<PostObject[]>([]);
-    const handleSidebar=()=>{
-        menubar == 0 ? setmenubar(15) : setmenubar(0);
-    }
+    const [leftContentPage, setleftContentPage] = useState<number>(0);
+    const [widthContentPage, setwidthContentPage] = useState<number>(100);
+    const [menubar,setmenubar ] = useState<number>(0);
+
     const handleEditData=(dataToEdit:PostObject)=>{
         localStorage.setItem("editData",JSON.stringify(dataToEdit))
         window.location.href="http://localhost:5173/createblog"
     }
+    
     useEffect(() => {
         localStorage.removeItem("editData");
         const blogToken = sessionStorage.getItem("jwtToken");
@@ -39,14 +40,20 @@ function BlogPosts() {
             console.log("data sent");
         }
     }, []);
-    
+    const handleSidebar=()=>{
+      if(window.innerWidth > 991){
+         if(leftContentPage == 0){setmenubar(0); setleftContentPage(15);setwidthContentPage(85)
+         }else{setmenubar(-15);setleftContentPage(0);setwidthContentPage(100)}
+      }
+      else{menubar == 0 ? setmenubar(-100) : setmenubar(0);}
+    }
     return (
         <>
             <div className="page-row">
                 <Sidebar widthSet={menubar}/>
-                <div className='dashboard-main-content' style={{left:menubar+'%', width: menubar == 15 ? 85+'%': 100+'%'}}>
+                <div className='dashboard-main-content' style={{left:leftContentPage +"%", width:widthContentPage + "%"}}>
                     <Topnavbar width={handleSidebar}/>
-                        <Dashboardheader pageName={"Blog posts"} pageNavNameOne={"Blog"} pageNavNameTwo={"Blog posts"}/>
+                    <Dashboardheader pageName={"Blog posts"} pageNavNameOne={"Blog"} pageNavNameTwo={"Blog posts"}/>
                     <div className="posts-container">
                         <div className="page-row">
                             {blogPosts.map((item:any)=>(

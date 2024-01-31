@@ -45,7 +45,7 @@ function sidebar(props: changeSidebar) {
   
   return (
     <>
-    <div className="sidebar-wrapper" style={{width: props.widthSet+'%'}}>
+    <div className="sidebar-wrapper" style={{left: props.widthSet+'%'}}>
       <div className="logo">
           <i className="fa-solid fa-school"></i> 
           <a href="http://localhost:5173">Main<span>land</span></a>

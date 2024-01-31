@@ -43,7 +43,7 @@
 .blog-category input{display: none;}
 .edit_blog_image{
     background-color: #fff;
-    width: 320px;
+    width: 100%;
     height: 200px;
     border: 1px solid #eee;
     align-items: center;
